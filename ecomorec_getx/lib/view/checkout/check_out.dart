@@ -1,6 +1,7 @@
 import 'package:eco_getx_app/core/viewmodel/check_out_view_model.dart';
 import 'package:eco_getx_app/helper/constants.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_animator/flutter_animator.dart';
 import 'package:get/get.dart';
 
 import '../widgets/custom_divider.dart';
@@ -72,9 +73,10 @@ class CheckOutView extends StatelessWidget {
             ),
             const SizedBox(height: 25),
             GetBuilder<CheckOutViewModel>(
-              builder: (controller) =>
-                  Expanded(child: controller.screens[controller.currentStep]),
-            ),
+                builder: (controller) => Expanded(
+                    child: BounceInUp(
+                        key: controller.basicAnimation,
+                        child: controller.screens[controller.currentStep]))),
           ],
         ),
       ),

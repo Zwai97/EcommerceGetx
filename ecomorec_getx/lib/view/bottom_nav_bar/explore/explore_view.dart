@@ -61,7 +61,8 @@ GetBuilder<ExploreViewModel> _listViewCategories(BuildContext context) {
                   .map((e) => GestureDetector(
                       onTap: () async {
                         await controller.getFilteredProducts(e.id!);
-                        Get.to(() => CategoriesView(), arguments: e.name);
+                        Get.to(() => const CategoriesView(),
+                            arguments: e.name, transition: Transition.zoom);
                       },
                       child: _categoriesItem(context, e.image, e.name)))
                   .toList(),
@@ -103,7 +104,8 @@ GetBuilder<ExploreViewModel> _listViewProducts(BuildContext context) {
               scrollDirection: Axis.horizontal,
               itemBuilder: (context, index) => GestureDetector(
                 onTap: () => Get.to(() => DetailsView(),
-                    arguments: controller.products[index]),
+                    arguments: controller.products[index],
+                    transition: Transition.zoom),
                 child: SizedBox(
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,

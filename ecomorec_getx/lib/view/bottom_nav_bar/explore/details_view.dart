@@ -3,6 +3,7 @@ import 'package:eco_getx_app/helper/constants.dart';
 import 'package:eco_getx_app/view/widgets/custom_button.dart';
 import 'package:eco_getx_app/view/widgets/custom_text.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_animator/flutter_animator.dart';
 import 'package:get/get.dart';
 
 import '../../../model/product_cart.dart';
@@ -155,18 +156,27 @@ class DetailsView extends StatelessWidget {
                       )
                     ],
                   ),
-                  SizedBox(
-                      width: context.width * 0.40,
-                      child: CustomButton(
-                          text: 'ADD',
-                          onPressed: () async {
-                            await controller.addProductCart(ProductCart(
-                                name: data.name,
-                                image: data.image,
-                                price: data.price,
-                                productId: data.productId,
-                                quantity: 0));
-                          })),
+                  HeadShake(
+                    key: controller.basicAnimation,
+                    child: SizedBox(
+                        width: context.width * 0.40,
+                        child: CustomButton(
+                            color: controller.isAdded()
+                                ? TEXT_TITLE_COLOR
+                                : PRIMARY_COLOR,
+                            text: controller.isAdded() ? 'ADDED' : 'ADD',
+                            onPressed: () async {
+                              await controller.toggle(
+                                  data.productId,
+                                  ProductCart(
+                                      name: data.name,
+                                      image: data.image,
+                                      price: data.price,
+                                      productId: data.productId,
+                                      quantity: 0));
+                              controller.animate();
+                            })),
+                  ),
                 ],
               ),
             )

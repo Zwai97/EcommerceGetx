@@ -1,9 +1,17 @@
 import 'package:eco_getx_app/core/services/database.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_animator/flutter_animator.dart';
 import 'package:get/get.dart';
 
 import '../../model/product_cart.dart';
 
 class CartViewModel extends GetxController {
+  final GlobalKey<AnimatorWidgetState> basicAnimation =
+      GlobalKey<AnimatorWidgetState>();
+  animate() {
+    basicAnimation.currentState!.forward();
+  }
+
   ///////////////////////////////////////////////////////////////////////////////////////////////////////////
   List<ProductCart> _productCart = [];
   List<ProductCart> get productCart => _productCart;
@@ -59,6 +67,20 @@ class CartViewModel extends GetxController {
     }
   }
 
+  bool isAdded() => _productCart
+      .any((element) => element.productId == Get.arguments.productId);
+
+  Future<void> toggle(String id, ProductCart productCart) async {
+    final int currentIndex =
+        _productCart.indexWhere((element) => element.productId == id);
+    if (currentIndex >= 0) {
+      _productCart.removeAt(currentIndex);
+      update();
+    } else {
+      await addProductCart(productCart);
+    }
+  }
+
   Future<void> updateProductCart(ProductCart productCart) async =>
       await instance.updateData(productCart);
 
@@ -75,6 +97,12 @@ class CartViewModel extends GetxController {
     await getProductCart();
 
     super.onInit();
+  }
+
+  @override
+  void onClose() {
+    super.onClose();
+    basicAnimation.currentState!.dispose();
   }
 }
 

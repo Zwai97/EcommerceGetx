@@ -33,8 +33,8 @@ class AccountView extends StatelessWidget {
                       child: _customListTile(
                           'Shipping Address',
                           FontAwesomeIcons.locationArrow,
-                          () async =>
-                              Get.to(() => const ShippingAddressView())),
+                          () async => Get.to(() => const ShippingAddressView(),
+                              transition: Transition.zoom)),
                     ),
                     const Spacer(),
                     Expanded(

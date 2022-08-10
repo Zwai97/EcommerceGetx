@@ -51,6 +51,7 @@ class CategoriesView extends GetView<ExploreViewModel> {
                       ),
                       itemBuilder: (context, index) => GestureDetector(
                         onTap: () => Get.to(() => DetailsView(),
+                            transition: Transition.zoom,
                             arguments: controller.filteredProducts[index]),
                         child: Column(
                           children: [

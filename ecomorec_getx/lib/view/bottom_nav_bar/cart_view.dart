@@ -159,7 +159,8 @@ class CartView extends StatelessWidget {
                           child: CustomButton(
                               text: 'CHECKOUT',
                               onPressed: () async {
-                                Get.to(() => const CheckOutView());
+                                Get.to(() => const CheckOutView(),
+                                    transition: Transition.zoom);
                               }),
                         ),
                       ],

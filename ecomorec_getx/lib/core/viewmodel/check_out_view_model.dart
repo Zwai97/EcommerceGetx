@@ -4,11 +4,18 @@ import 'package:eco_getx_app/view/checkout/delivery_time.dart';
 import 'package:eco_getx_app/view/checkout/summary.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_animator/widgets/animator_widget.dart';
 import 'package:get/get.dart';
 
 import '../services/firestore_service.dart';
 
 class CheckOutViewModel extends GetxController {
+  final GlobalKey<AnimatorWidgetState> basicAnimation =
+      GlobalKey<AnimatorWidgetState>();
+  animate() {
+    basicAnimation.currentState!.forward();
+  }
+
   ///////////////////////////////////////////////////////////////////////////////////////////////////////
   int _currentStep = 0;
   int get currentStep => _currentStep;
@@ -57,6 +64,7 @@ class CheckOutViewModel extends GetxController {
     _currentStep < 2 ? _currentStep += 1 : null;
     _currentStep == 1 ? _stepOne = PRIMARY_COLOR : SECOND_GREY_COLOR;
     _currentStep == 2 ? _stepTwo = PRIMARY_COLOR : SECOND_GREY_COLOR;
+    animate();
     update();
   }
 
@@ -64,6 +72,7 @@ class CheckOutViewModel extends GetxController {
     _currentStep > 0 ? _currentStep -= 1 : null;
     _currentStep == 1 ? _stepTwo = SECOND_GREY_COLOR : PRIMARY_COLOR;
     _currentStep == 0 ? _stepOne = SECOND_GREY_COLOR : PRIMARY_COLOR;
+    animate();
     update();
   }
 
