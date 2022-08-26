@@ -63,23 +63,23 @@ class CartViewModel extends GetxController {
     if (itemIsExist.isEmpty) {
       await instance.insertData(productCart);
       _productCart.add(productCart);
-      getTotalPrice();
+      _totalPrice += (double.parse(productCart.price!) * productCart.quantity!);
+      update();
     }
   }
 
   bool isAdded() => _productCart
       .any((element) => element.productId == Get.arguments.productId);
 
-  Future<void> toggle(String id, ProductCart productCart) async {
-    final int currentIndex =
-        _productCart.indexWhere((element) => element.productId == id);
-    if (currentIndex >= 0) {
-      _productCart.removeAt(currentIndex);
-      update();
-    } else {
-      await addProductCart(productCart);
-    }
-  }
+  // Future<void> toggle(String id, ProductCart productCart) async {
+  //   final int currentIndex =
+  //       _productCart.indexWhere((element) => element.productId == id);
+  //   if (currentIndex >= 0) {
+  //     await deleteProductCart(productCart);
+  //   } else {
+  //     await addProductCart(productCart);
+  //   }
+  // }
 
   Future<void> updateProductCart(ProductCart productCart) async =>
       await instance.updateData(productCart);

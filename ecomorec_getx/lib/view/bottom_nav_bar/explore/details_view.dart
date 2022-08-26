@@ -166,14 +166,12 @@ class DetailsView extends StatelessWidget {
                                 : PRIMARY_COLOR,
                             text: controller.isAdded() ? 'ADDED' : 'ADD',
                             onPressed: () async {
-                              await controller.toggle(
-                                  data.productId,
-                                  ProductCart(
-                                      name: data.name,
-                                      image: data.image,
-                                      price: data.price,
-                                      productId: data.productId,
-                                      quantity: 0));
+                              await controller.addProductCart(ProductCart(
+                                  name: data.name,
+                                  image: data.image,
+                                  price: data.price,
+                                  productId: data.productId,
+                                  quantity: 1));
                               controller.animate();
                             })),
                   ),

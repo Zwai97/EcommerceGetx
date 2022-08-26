@@ -13,7 +13,6 @@ class HomePage extends GetView<BottomNavBarViewModel> {
     return Scaffold(
         bottomNavigationBar: GetX<BottomNavBarViewModel>(
             builder: (controller) => BottomNavyBar(
-                curve: Curves.easeInOut,
                 selectedIndex: controller.currentIndex.value,
                 showElevation: true,
                 items: _listNavyBar,

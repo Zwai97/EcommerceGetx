@@ -1,4 +1,3 @@
-import 'package:device_preview/device_preview.dart';
 import 'package:eco_getx_app/view/control_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -12,10 +11,11 @@ void main() async {
   await SystemChrome.setPreferredOrientations([
     DeviceOrientation.portraitUp,
     DeviceOrientation.portraitDown,
-  ]).then((value) async => await initServices().then(
-      (value) => runApp(DevicePreview(builder: (context) => const MyApp()))));
+  ]).then((value) async =>
+      await initServices().then((value) => runApp(const MyApp())));
 }
 
+// DevicePreview(builder: (context) =>))
 Future<void> initServices() async {
   // ignore: avoid_print
   print('starting services ...');
@@ -35,9 +35,9 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetMaterialApp(
       initialBinding: Binding(),
-      useInheritedMediaQuery: true,
-      locale: DevicePreview.locale(context),
-      builder: DevicePreview.appBuilder,
+      // useInheritedMediaQuery: true,
+      // locale: DevicePreview.locale(context),
+      // builder: DevicePreview.appBuilder,
       debugShowCheckedModeBanner: false,
       title: 'EcommerceApp',
       home: const ControlView(),
