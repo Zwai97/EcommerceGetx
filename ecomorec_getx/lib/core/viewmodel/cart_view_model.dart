@@ -1,9 +1,9 @@
-import 'package:eco_getx_app/core/services/database.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animator/flutter_animator.dart';
 import 'package:get/get.dart';
 
 import '../../model/product_cart.dart';
+import '../services/database.dart';
 
 class CartViewModel extends GetxController {
   final GlobalKey<AnimatorWidgetState> basicAnimation =
@@ -18,6 +18,7 @@ class CartViewModel extends GetxController {
   DatabaseHelper instance = DatabaseHelper.instance;
   late bool _isloading;
   bool get isloading => _isloading;
+
   ///////////////////////////////////////////////////////////////////////////////////////////////////////////
 
   int counter = 0;
@@ -56,6 +57,14 @@ class CartViewModel extends GetxController {
     update();
   }
 
+  Future<void> getProductCartWithoutPrice() async {
+    _isloading = true;
+    _productCart = await instance.getData();
+    _isloading = false;
+
+    update();
+  }
+
   Future<void> addProductCart(ProductCart productCart) async {
     final List<ProductCart> itemIsExist = _productCart
         .where((e) => e.productId == productCart.productId)
@@ -71,16 +80,6 @@ class CartViewModel extends GetxController {
   bool isAdded() => _productCart
       .any((element) => element.productId == Get.arguments.productId);
 
-  // Future<void> toggle(String id, ProductCart productCart) async {
-  //   final int currentIndex =
-  //       _productCart.indexWhere((element) => element.productId == id);
-  //   if (currentIndex >= 0) {
-  //     await deleteProductCart(productCart);
-  //   } else {
-  //     await addProductCart(productCart);
-  //   }
-  // }
-
   Future<void> updateProductCart(ProductCart productCart) async =>
       await instance.updateData(productCart);
 
@@ -89,6 +88,21 @@ class CartViewModel extends GetxController {
     _productCart.remove(productCart);
     _totalPrice -= (double.parse(productCart.price!) * productCart.quantity!);
     update();
+  }
+
+  Future<void> toggleProductCart(var data) async {
+    final int currentIndex = _productCart
+        .indexWhere((element) => element.productId == data.productId);
+    if (currentIndex >= 0) {
+      await deleteProductCart(_productCart[currentIndex]);
+    } else {
+      await addProductCart(ProductCart(
+          name: data.name,
+          image: data.image,
+          price: data.price,
+          productId: data.productId,
+          quantity: 1));
+    }
   }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

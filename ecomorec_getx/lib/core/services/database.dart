@@ -1,7 +1,7 @@
-import 'package:eco_getx_app/helper/constants.dart';
 import 'package:path/path.dart';
 import 'package:sqflite/sqflite.dart';
 
+import '../../helper/constants.dart';
 import '../../model/product_cart.dart';
 
 class DatabaseHelper {

@@ -1,9 +1,9 @@
-import 'package:eco_getx_app/core/viewmodel/check_out_view_model.dart';
-import 'package:eco_getx_app/view/widgets/custom_button.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import '../../core/viewmodel/check_out_view_model.dart';
 import '../../helper/constants.dart';
+import '../widgets/custom_button.dart';
 import '../widgets/custom_text.dart';
 
 class DeliveryTimeView extends GetView<CheckOutViewModel> {

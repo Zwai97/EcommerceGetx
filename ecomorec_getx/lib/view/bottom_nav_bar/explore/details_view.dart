@@ -1,12 +1,11 @@
-import 'package:eco_getx_app/core/viewmodel/cart_view_model.dart';
-import 'package:eco_getx_app/helper/constants.dart';
-import 'package:eco_getx_app/view/widgets/custom_button.dart';
-import 'package:eco_getx_app/view/widgets/custom_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animator/flutter_animator.dart';
 import 'package:get/get.dart';
 
-import '../../../model/product_cart.dart';
+import '../../../core/viewmodel/cart_view_model.dart';
+import '../../../helper/constants.dart';
+import '../../widgets/custom_button.dart';
+import '../../widgets/custom_text.dart';
 
 class DetailsView extends StatelessWidget {
   DetailsView({Key? key}) : super(key: key);
@@ -166,12 +165,7 @@ class DetailsView extends StatelessWidget {
                                 : PRIMARY_COLOR,
                             text: controller.isAdded() ? 'ADDED' : 'ADD',
                             onPressed: () async {
-                              await controller.addProductCart(ProductCart(
-                                  name: data.name,
-                                  image: data.image,
-                                  price: data.price,
-                                  productId: data.productId,
-                                  quantity: 1));
+                              await controller.toggleProductCart(data);
                               controller.animate();
                             })),
                   ),

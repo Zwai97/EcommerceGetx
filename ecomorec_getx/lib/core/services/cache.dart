@@ -1,8 +1,9 @@
 import 'dart:convert';
 
-import 'package:eco_getx_app/helper/constants.dart';
-import 'package:eco_getx_app/model/user.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+
+import '../../helper/constants.dart';
+import '../../model/user.dart';
 
 class Cache {
   Cache._();

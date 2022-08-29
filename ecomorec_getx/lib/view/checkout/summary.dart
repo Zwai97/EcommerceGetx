@@ -1,9 +1,9 @@
-import 'package:eco_getx_app/core/viewmodel/cart_view_model.dart';
-import 'package:eco_getx_app/helper/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import '../../core/viewmodel/cart_view_model.dart';
 import '../../core/viewmodel/check_out_view_model.dart';
+import '../../helper/constants.dart';
 import '../widgets/custom_button.dart';
 import '../widgets/custom_text.dart';
 

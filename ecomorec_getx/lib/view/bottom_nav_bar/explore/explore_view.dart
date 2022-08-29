@@ -1,7 +1,7 @@
-import 'package:eco_getx_app/core/viewmodel/explore_view_model.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import '../../../core/viewmodel/explore_view_model.dart';
 import '../../../helper/constants.dart';
 import '../../widgets/custom_text.dart';
 import 'categories_view.dart';

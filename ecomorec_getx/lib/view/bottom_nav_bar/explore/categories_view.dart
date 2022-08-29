@@ -1,11 +1,11 @@
-import 'package:eco_getx_app/core/viewmodel/explore_view_model.dart';
-import 'package:eco_getx_app/view/bottom_nav_bar/explore/details_view.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import '../../../core/viewmodel/explore_view_model.dart';
 import '../../../helper/constants.dart';
 import '../../widgets/custom_text.dart';
 import '../../widgets/empty_widget.dart';
+import 'details_view.dart';
 
 class CategoriesView extends GetView<ExploreViewModel> {
   const CategoriesView({Key? key}) : super(key: key);

@@ -1,7 +1,8 @@
-import 'package:eco_getx_app/core/services/firestore_service.dart';
-import 'package:eco_getx_app/model/category.dart';
-import 'package:eco_getx_app/model/product.dart';
 import 'package:get/get.dart';
+
+import '../../model/category.dart';
+import '../../model/product.dart';
+import '../services/firestore_service.dart';
 
 class ExploreViewModel extends GetxController {
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

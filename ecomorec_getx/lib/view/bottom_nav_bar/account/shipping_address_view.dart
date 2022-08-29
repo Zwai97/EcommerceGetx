@@ -1,7 +1,7 @@
-import 'package:eco_getx_app/core/viewmodel/check_out_view_model.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import '../../../core/viewmodel/check_out_view_model.dart';
 import '../../../core/viewmodel/shipping_address_view_model.dart';
 import '../../../helper/constants.dart';
 import '../../widgets/custom_button.dart';

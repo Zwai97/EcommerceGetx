@@ -1,12 +1,12 @@
-import 'package:eco_getx_app/helper/constants.dart';
-import 'package:eco_getx_app/view/widgets/custom_text.dart';
-import 'package:eco_getx_app/view/widgets/empty_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../core/viewmodel/cart_view_model.dart';
+import '../../helper/constants.dart';
 import '../checkout/check_out.dart';
 import '../widgets/custom_button.dart';
+import '../widgets/custom_text.dart';
+import '../widgets/empty_widget.dart';
 
 class CartView extends StatelessWidget {
   const CartView({Key? key}) : super(key: key);

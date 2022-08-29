@@ -1,11 +1,11 @@
-import 'package:eco_getx_app/helper/constants.dart';
-import 'package:eco_getx_app/view/bottom_nav_bar/account/shipping_address_view.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
 
 import '../../../core/viewmodel/auth_view_model.dart';
+import '../../../helper/constants.dart';
 import '../../widgets/custom_text.dart';
+import 'shipping_address_view.dart';
 
 class AccountView extends StatelessWidget {
   const AccountView({Key? key}) : super(key: key);
@@ -147,9 +147,9 @@ class AccountView extends StatelessWidget {
 }
 
 typedef OnPressed = Future<void> Function();
-GestureDetector _customListTile(
-    String title, IconData icon, OnPressed function) {
-  return GestureDetector(
+InkWell _customListTile(String title, IconData icon, OnPressed function) {
+  return InkWell(
+    overlayColor: MaterialStateProperty.all(Colors.transparent),
     onTap: function,
     child: ListTile(
         title: CustomText(

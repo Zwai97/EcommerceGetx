@@ -1,9 +1,9 @@
-import 'package:eco_getx_app/core/viewmodel/check_out_view_model.dart';
-import 'package:eco_getx_app/helper/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animator/flutter_animator.dart';
 import 'package:get/get.dart';
 
+import '../../core/viewmodel/check_out_view_model.dart';
+import '../../helper/constants.dart';
 import '../widgets/custom_divider.dart';
 import '../widgets/custom_stepper.dart';
 import '../widgets/custom_text.dart';

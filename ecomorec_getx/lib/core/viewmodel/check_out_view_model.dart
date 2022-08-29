@@ -1,12 +1,12 @@
-import 'package:eco_getx_app/helper/constants.dart';
-import 'package:eco_getx_app/view/checkout/add_address.dart';
-import 'package:eco_getx_app/view/checkout/delivery_time.dart';
-import 'package:eco_getx_app/view/checkout/summary.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animator/widgets/animator_widget.dart';
 import 'package:get/get.dart';
 
+import '../../helper/constants.dart';
+import '../../view/checkout/add_address.dart';
+import '../../view/checkout/delivery_time.dart';
+import '../../view/checkout/summary.dart';
 import '../services/firestore_service.dart';
 
 class CheckOutViewModel extends GetxController {

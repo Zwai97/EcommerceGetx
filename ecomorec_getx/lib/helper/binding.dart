@@ -1,9 +1,9 @@
-import 'package:eco_getx_app/core/viewmodel/explore_view_model.dart';
 import 'package:get/get.dart';
 
 import '../core/viewmodel/auth_view_model.dart';
 import '../core/viewmodel/bottom_nav_bar_view_mode.dart';
 import '../core/viewmodel/cart_view_model.dart';
+import '../core/viewmodel/explore_view_model.dart';
 
 class Binding extends Bindings {
   @override

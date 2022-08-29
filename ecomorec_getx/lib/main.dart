@@ -1,10 +1,10 @@
-import 'package:eco_getx_app/view/control_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 
 import 'core/services/services_settings.dart';
 import 'helper/binding.dart';
+import 'view/control_view.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
