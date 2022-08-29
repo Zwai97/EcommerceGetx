@@ -57,14 +57,6 @@ class CartViewModel extends GetxController {
     update();
   }
 
-  Future<void> getProductCartWithoutPrice() async {
-    _isloading = true;
-    _productCart = await instance.getData();
-    _isloading = false;
-
-    update();
-  }
-
   Future<void> addProductCart(ProductCart productCart) async {
     final List<ProductCart> itemIsExist = _productCart
         .where((e) => e.productId == productCart.productId)
